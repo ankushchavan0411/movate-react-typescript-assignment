@@ -1,11 +1,10 @@
 /** @format */
-
-import "./App.css";
+import Header from "./components/common/Header";
 
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">My App</header> */}
+      <Header />
     </div>
   );
 }
