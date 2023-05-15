@@ -2,14 +2,18 @@
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
 import Pages from "./routes";
+import Container from "@mui/material/Container";
+import React from "react";
 
 function App() {
   return (
-    <div className="App">
+    <React.Fragment>
       <Header />
-      <Pages />
+      <Container>
+        <Pages />
+      </Container>
       <Footer />
-    </div>
+    </React.Fragment>
   );
 }
 

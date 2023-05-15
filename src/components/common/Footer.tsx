@@ -1,7 +1,7 @@
 /** @format */
 
 const Footer = () => {
-  return <div>Copyright &copy; Myapp 2023</div>;
+  return <footer>Copyright &copy; Myapp 2023</footer>;
 };
 
 export default Footer;

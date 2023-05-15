@@ -12,7 +12,7 @@ const Pages = () => {
       <Route path={COURSE} element={<Course />} />
       <Route path={TEACHER} element={<Teacher />} />
       <Route path={STUDENT} element={<Teacher />} />
-      <Route path="*" element={<p>Sorry, nothing here</p>} />
+      <Route path="*" element={<p>Sorry, page not found</p>} />
     </Routes>
   );
 };

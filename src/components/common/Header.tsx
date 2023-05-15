@@ -6,14 +6,25 @@ const Header = () => {
   const { HOME, COURSE, TEACHER, STUDENT } = ROUTES;
   return (
     <header>
-      <NavLink to="/">{HOME}</NavLink>
-      <NavLink to={COURSE} style={{ textTransform: "capitalize" }}>
+      <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
+        {HOME}
+      </NavLink>
+      <NavLink
+        to={COURSE}
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
         {COURSE}
       </NavLink>
-      <NavLink to={TEACHER} style={{ textTransform: "capitalize" }}>
+      <NavLink
+        to={TEACHER}
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
         {TEACHER}
       </NavLink>
-      <NavLink to={STUDENT} style={{ textTransform: "capitalize" }}>
+      <NavLink
+        to={STUDENT}
+        className={({ isActive }) => (isActive ? "active" : "")}
+      >
         {STUDENT}
       </NavLink>
       <Outlet />

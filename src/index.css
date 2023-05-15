@@ -3,10 +3,49 @@
 body {
   margin: 0px;
   padding: 0px;
-  box-sizing: content-box;
+  /* box-sizing: border-box; */
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* *********************** ---- Header CSS ---- ****************************** */
+header {
+  width: 100%;
+  top: 0;
+  z-index: 1;
+  position: sticky;
+  background-color: #333;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: capitalize;
+}
+header a {
+  text-decoration: none;
+  color: #fff;
+  margin-left: 10px;
+  font-size: 17px;
+}
+header .active {
+  color: aqua;
+}
+header a:hover {
+  color: aqua;
+  transition: 0.5s;
+}
+
+/* *********************** ---- Footer CSS ---- ****************************** */
+footer {
+  text-align: center;
+  padding: 15px;
+  background-color: #333;
+  color: #fff;
+  z-index: 1;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
