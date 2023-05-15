@@ -2,11 +2,7 @@
 
 import Button from "@mui/material/Button";
 
-const Buttons = () => {
-  return (
-    <div>
-      <Button variant="contained">Hello World</Button>
-    </div>
-  );
+const Buttons = ({ labelText = "Submit" as string }) => {
+  return <Button variant="contained">{labelText}</Button>;
 };
 export default Buttons;
