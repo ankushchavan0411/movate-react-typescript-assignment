@@ -7,6 +7,13 @@ const initialState: CourseState = {
   courses: [],
 };
 
+/**
+ * @ankushchavan0411
+ * @description This is the Course Reducer
+ * @param state
+ * @param action
+ * @returns
+ */
 const CourseReducer = (
   state: CourseState = initialState,
   action: CourseAction
@@ -22,6 +29,7 @@ const CourseReducer = (
         ...state,
         courses: state.courses.concat(newCourse),
       };
+
     case EDIT_COURSE:
       const updatedCourses: ICourse[] = state.courses.filter((course) => {
         if (course.id === action.course.id) {
