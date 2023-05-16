@@ -10,7 +10,7 @@ interface Props {
   teachers: any;
 }
 
-const TableRows: React.FC<Props> = ({ handleOnEditClick, teachers }) => {
+const TeacherTableRows: React.FC<Props> = ({ handleOnEditClick, teachers }) => {
   return (
     <React.Fragment>
       {teachers
@@ -38,4 +38,4 @@ const TableRows: React.FC<Props> = ({ handleOnEditClick, teachers }) => {
   );
 };
 
-export default TableRows;
+export default TeacherTableRows;

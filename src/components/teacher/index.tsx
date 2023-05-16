@@ -8,7 +8,7 @@ import DataModal from "../common/DataModal";
 import DataTable from "../common/DataTable";
 import MainHeader from "../common/MainHeader";
 import AddEditTeacher from "./AddEditTeacher";
-import TableRows from "./TableRows";
+import TableRows from "./TeacherTableRows";
 
 const Teacher = () => {
   const { teachers } = useSelector((state: AppState) => state.teachers);
