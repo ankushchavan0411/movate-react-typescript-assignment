@@ -1,15 +1,20 @@
 /** @format */
 
+import TableCell, { tableCellClasses } from "@mui/material/TableCell";
+import TableRow from "@mui/material/TableRow";
+import { styled } from "@mui/material/styles";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
+import { ITeacher } from "../../types/types";
+import Buttons from "../common/Button";
 import DataModal from "../common/DataModal";
 import DataTable from "../common/DataTable";
 import MainHeader from "../common/MainHeader";
 import AddEditTeacher from "./AddEditTeacher";
 
 const Teacher = () => {
-  const { courses } = useSelector((state: AppState) => state.courses);
+  const { teachers } = useSelector((state: AppState) => state.teachers);
   const [isOpen, setOpen] = React.useState(false);
   const [teacher, setTeacher] = useState({});
   const [isEdit, setEdit] = useState(false);
@@ -22,6 +27,58 @@ const Teacher = () => {
     { field: "college", headerName: "College", width: 200 },
     { field: "action", headerName: "Action", width: 200 },
   ];
+
+  const StyledTableCell = styled(TableCell)(({ theme }) => ({
+    [`&.${tableCellClasses.head}`]: {
+      backgroundColor: theme.palette.common.black,
+      color: theme.palette.common.white,
+    },
+    [`&.${tableCellClasses.body}`]: {
+      fontSize: 14,
+    },
+  }));
+
+  const StyledTableRow = styled(TableRow)(({ theme }) => ({
+    "&:nth-of-type(odd)": {
+      backgroundColor: theme.palette.action.hover,
+    },
+    // hide last border
+    "&:last-child td, &:last-child th": {
+      border: 0,
+    },
+  }));
+
+  interface Props {
+    handleOnEditClick(teacher: ITeacher): any;
+  }
+
+  const Rows: React.FC<Props> = ({ handleOnEditClick }) => {
+    return (
+      <React.Fragment>
+        {teachers
+          ?.map?.((teacher: ITeacher, index: number) => (
+            <StyledTableRow key={teacher.id}>
+              <StyledTableCell>{index + 1}</StyledTableCell>
+              <StyledTableCell component="th" scope="row">
+                {teacher.name}
+              </StyledTableCell>
+              <StyledTableCell>{teacher.age}</StyledTableCell>
+              <StyledTableCell>{teacher.college}</StyledTableCell>
+              <StyledTableCell>{teacher.subject}</StyledTableCell>
+              <StyledTableCell align="right">
+                <Buttons
+                  labelText={"Edit"}
+                  handleOnClick={() => {
+                    handleOnEditClick(teacher);
+                  }}
+                />
+              </StyledTableCell>
+            </StyledTableRow>
+          ))
+          ?.reverse()}
+      </React.Fragment>
+    );
+  };
 
   return (
     <React.Fragment>
@@ -42,12 +99,15 @@ const Teacher = () => {
       />
       <DataTable
         columns={columns}
-        rows={courses}
-        handleOnEditClick={(teacher: any): void => {
-          setTeacher(teacher);
-          setOpen(true);
-          setEdit(true);
-        }}
+        render={
+          <Rows
+            handleOnEditClick={(teacher: any): void => {
+              setTeacher(teacher);
+              setOpen(true);
+              setEdit(true);
+            }}
+          />
+        }
       />
     </React.Fragment>
   );

@@ -4,7 +4,7 @@ import TextField from "@mui/material/TextField";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
-import { addCourse, editCourse } from "../../redux/actions/courseAction";
+import { addTeacher, editTeacher } from "../../redux/actions/teacherAction";
 import { getUniqueId } from "../../utils";
 import Buttons from "../common/Button";
 
@@ -15,12 +15,16 @@ interface Props {
 }
 
 const AddEditTeacher: React.FC<Props> = ({ setOpen, teacher, isEdit }) => {
-  const [courseName, setCourseName] = useState("");
-  const [courseDuration, setCourseDuration] = useState("");
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [college, setCollege] = useState("");
+  const [subject, setSubject] = useState("");
 
   useEffect(() => {
-    // setCourseName(course?.name);
-    // setCourseDuration(course?.durationInMonths);
+    setName(teacher?.name);
+    setAge(teacher?.age);
+    setCollege(teacher?.college);
+    setSubject(teacher?.subject);
   }, [teacher]);
 
   const dispatch: Dispatch<any> = useDispatch();
@@ -28,18 +32,22 @@ const AddEditTeacher: React.FC<Props> = ({ setOpen, teacher, isEdit }) => {
   const handleOnSubmit = () => {
     if (isEdit) {
       dispatch(
-        editCourse({
+        editTeacher({
           ...teacher,
-          name: courseName,
-          durationInMonths: courseDuration,
+          name,
+          age,
+          subject,
+          college,
         })
       );
     } else {
       dispatch(
-        addCourse({
+        addTeacher({
           id: getUniqueId(),
-          name: courseName,
-          durationInMonths: courseDuration,
+          name,
+          age,
+          subject,
+          college,
         })
       );
     }
@@ -58,32 +66,54 @@ const AddEditTeacher: React.FC<Props> = ({ setOpen, teacher, isEdit }) => {
       >
         <div>
           <TextField
-            error={!courseName}
+            error={!name}
             required
             id="outlined-required"
-            label="Course Name"
-            value={courseName}
-            onChange={(e: any): void => setCourseName(e.target.value)}
+            label="Teacher Name"
+            value={name}
+            onChange={(e: any): void => setName(e.target.value)}
             autoFocus
           />
         </div>
         <div>
           <TextField
-            error={!courseDuration}
-            value={courseDuration}
+            error={!age}
+            value={age}
             id="outlined-number"
-            label="Course Duration-(In Months)"
+            label="Age-(In Years)"
             type="number"
             InputLabelProps={{
               shrink: true,
             }}
-            onChange={(e: any): void => setCourseDuration(e.target.value)}
+            onChange={(e: any): void => setAge(e.target.value)}
+          />
+        </div>
+        <div>
+          <TextField
+            error={!subject}
+            required
+            id="outlined-required"
+            label="Subject"
+            value={subject}
+            onChange={(e: any): void => setSubject(e.target.value)}
+            autoFocus
+          />
+        </div>
+        <div>
+          <TextField
+            error={!college}
+            required
+            id="outlined-required"
+            label="College"
+            value={college}
+            onChange={(e: any): void => setCollege(e.target.value)}
+            autoFocus
           />
         </div>
         <Buttons
           labelText={isEdit ? "Update" : "Submit"}
           handleOnClick={handleOnSubmit}
-          disabled={!courseDuration || !courseName}
+          disabled={!name || !age || !college || !subject}
         />
       </Box>
     </React.Fragment>
