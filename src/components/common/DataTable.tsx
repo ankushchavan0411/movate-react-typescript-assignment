@@ -34,8 +34,13 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 interface DataTableProps {
   rows: ICourse[];
   columns: GridColDef[];
+  handleOnEditClick(course: ICourse): any;
 }
-const DataTable: React.FC<DataTableProps> = ({ rows, columns }) => {
+const DataTable: React.FC<DataTableProps> = ({
+  rows,
+  columns,
+  handleOnEditClick,
+}) => {
   return (
     <TableContainer component={Paper} style={{ height: 460, width: "100%" }}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
@@ -58,9 +63,9 @@ const DataTable: React.FC<DataTableProps> = ({ rows, columns }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row) => (
-            <StyledTableRow key={row.name}>
-              <StyledTableCell>{row.id}</StyledTableCell>
+          {rows.map((row, index) => (
+            <StyledTableRow key={row.id}>
+              <StyledTableCell>{index + 1}</StyledTableCell>
               <StyledTableCell component="th" scope="row">
                 {row.name}
               </StyledTableCell>
@@ -69,7 +74,7 @@ const DataTable: React.FC<DataTableProps> = ({ rows, columns }) => {
                 <Button
                   labelText={"Edit"}
                   handleOnClick={() => {
-                    console.log("button click");
+                    handleOnEditClick(row);
                   }}
                 />
               </StyledTableCell>

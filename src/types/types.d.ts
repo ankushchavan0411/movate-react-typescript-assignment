@@ -7,7 +7,7 @@
 export interface ICourse {
   id: string;
   name: string;
-  durationInMonths: number;
+  durationInMonths: any;
 }
 
 export type CourseState = {

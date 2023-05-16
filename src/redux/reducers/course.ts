@@ -31,11 +31,6 @@ const CourseReducer = (
 ): CourseState => {
   switch (action.type) {
     case ADD_COURSE:
-      // const newCourse: ICourse = {
-      //   id: action.course.id,
-      //   name: action.course.name,
-      //   durationInMonths: action.course.durationInMonths,
-      // };
       return {
         ...state,
         courses: state.courses.concat(action.course),
@@ -44,13 +39,12 @@ const CourseReducer = (
     case EDIT_COURSE:
       const updatedCourses: ICourse[] = state.courses.filter((course) => {
         if (course.id === action.course.id) {
-          return {
-            ...course,
-            name: action.course.name,
-            durationInMonths: action.course.durationInMonths,
-          };
+          course.name = action.course.name;
+          course.durationInMonths = action.course.durationInMonths;
+          return course;
+        } else {
+          return course;
         }
-        return course;
       });
       return {
         ...state,

@@ -1,31 +1,48 @@
 /** @format */
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
-import { addCourse } from "../../redux/actions/courseAction";
+import { addCourse, editCourse } from "../../redux/actions/courseAction";
 import { getUniqueId } from "../../utils";
 import Buttons from "../common/Button";
 
 interface Props {
   setOpen(isOpen: boolean): any;
+  course?: any;
+  isEdit?: boolean;
 }
 
-const AddEditCourse: React.FC<Props> = ({ setOpen }) => {
+const AddEditCourse: React.FC<Props> = ({ setOpen, course, isEdit }) => {
   const [courseName, setCourseName] = useState("");
-  const [courseDuration, setCourseDuration] = useState(null);
+  const [courseDuration, setCourseDuration] = useState("");
+
+  useEffect(() => {
+    setCourseName(course?.name);
+    setCourseDuration(course?.durationInMonths);
+  }, [course]);
 
   const dispatch: Dispatch<any> = useDispatch();
 
-  const handleOnClick = () => {
-    dispatch(
-      addCourse({
-        id: getUniqueId(),
-        name: courseName,
-        durationInMonths: courseDuration || 0,
-      })
-    );
+  const handleOnSubmit = () => {
+    if (isEdit) {
+      dispatch(
+        editCourse({
+          ...course,
+          name: courseName,
+          durationInMonths: courseDuration,
+        })
+      );
+    } else {
+      dispatch(
+        addCourse({
+          id: getUniqueId(),
+          name: courseName,
+          durationInMonths: courseDuration,
+        })
+      );
+    }
     setOpen(false);
   };
 
@@ -55,7 +72,7 @@ const AddEditCourse: React.FC<Props> = ({ setOpen }) => {
             error={!courseDuration}
             value={courseDuration}
             id="outlined-number"
-            label="Course Duration"
+            label="Course Duration-(In Months)"
             type="number"
             InputLabelProps={{
               shrink: true,
@@ -64,8 +81,8 @@ const AddEditCourse: React.FC<Props> = ({ setOpen }) => {
           />
         </div>
         <Buttons
-          labelText="Submit"
-          handleOnClick={handleOnClick}
+          labelText={isEdit ? "Update" : "Submit"}
+          handleOnClick={handleOnSubmit}
           disabled={!courseDuration || !courseName}
         />
       </Box>
