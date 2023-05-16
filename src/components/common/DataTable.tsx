@@ -8,7 +8,7 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { styled } from "@mui/material/styles";
 import { GridColDef } from "@mui/x-data-grid";
-import { ICourse } from "../../const/types";
+import { ICourse } from "../../types/types";
 import Button from "./Button";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({

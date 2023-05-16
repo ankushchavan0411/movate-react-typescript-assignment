@@ -1,7 +1,7 @@
 /** @format */
 
 import { ADD_COURSE, EDIT_COURSE } from "../../const/actionTypes";
-import { CourseAction, CourseState, ICourse } from "../../const/types";
+import { CourseAction, CourseState, ICourse } from "../../types/types";
 
 const initialState: CourseState = {
   courses: [

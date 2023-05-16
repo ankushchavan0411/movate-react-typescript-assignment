@@ -1,7 +1,7 @@
 /** @format */
 
 import { ADD_COURSE, EDIT_COURSE } from "../../const/actionTypes";
-import { CourseAction, DispatchType, ICourse } from "../../const/types";
+import { CourseAction, DispatchType, ICourse } from "../../types/types";
 
 export function addCourse(course: ICourse) {
   const action: CourseAction = {
