@@ -1,6 +1,8 @@
 /** @format */
 import React from "react";
 import DataTable from "../common/DataTable";
+import MainHeader from "../common/MainHeader";
+
 const Course = () => {
   const columns = [
     { field: "id", headerName: "ID", width: 100 },
@@ -20,9 +22,13 @@ const Course = () => {
       durationInMonths: 22,
     },
   ];
+  const handleOnClick = () => {
+    console.log("clicked on add new");
+  };
+
   return (
     <React.Fragment>
-      <h1>Course</h1>
+      <MainHeader handleOnClick={handleOnClick} labelText="COURSE" />
       <DataTable columns={columns} rows={rows} />
     </React.Fragment>
   );
