@@ -17,24 +17,31 @@ header {
   top: 0;
   z-index: 1;
   position: sticky;
-  background-color: #333;
+  /* background-color: #333; */
+  background-color: rgb(25, 118, 210);
   padding: 16px;
   display: flex;
   justify-content: flex-end;
   text-transform: capitalize;
 }
+header .logo {
+  margin-left: 170px;
+  font-weight: 700 !important;
+  color: #fff;
+}
 header a {
   text-decoration: none;
-  color: #fff;
+  color: #fff;s
   font-size: 17px;
   margin-right: 35px;
+  font-weight: 600;
 }
 header .active {
-  color: aqua;
+  color: black;
 }
 header a:hover {
-  color: aqua;
-  transition: 0.5s;
+  color: black;
+  transition: 0.6s;
 }
 
 /* *********************** ---- Footer CSS ---- ****************************** */

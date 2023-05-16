@@ -1,4 +1,5 @@
 /** @format */
+import Typography from "@mui/material/Typography";
 import { NavLink, Outlet } from "react-router-dom";
 import { ROUTES } from "../../const";
 
@@ -6,6 +7,14 @@ const Header = () => {
   const { HOME, COURSE, TEACHER, STUDENT } = ROUTES;
   return (
     <header>
+      <Typography
+        variant="h5"
+        component="div"
+        sx={{ flexGrow: 1 }}
+        className="logo"
+      >
+        Myapp
+      </Typography>
       <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
         {HOME}
       </NavLink>
