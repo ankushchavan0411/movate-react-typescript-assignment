@@ -5,7 +5,7 @@
  * @description Define Courses types here
  */
 export interface ICourse {
-  id: number;
+  id: string;
   name: string;
   durationInMonths: number;
 }

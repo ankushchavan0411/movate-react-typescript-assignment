@@ -5,11 +5,22 @@ import Button from "@mui/material/Button";
 interface Props {
   labelText: string;
   handleOnClick(): any;
+  disabled?: boolean;
 }
 
-const Buttons: React.FC<Props> = ({ labelText, handleOnClick }) => {
+const Buttons: React.FC<Props> = ({
+  labelText,
+  handleOnClick,
+  disabled = false,
+}) => {
   return (
-    <Button onClick={handleOnClick} variant="contained">
+    <Button
+      onClick={handleOnClick}
+      variant="contained"
+      fullWidth
+      style={{ margin: 8 }}
+      disabled={disabled}
+    >
       {labelText || "Submit"}
     </Button>
   );
