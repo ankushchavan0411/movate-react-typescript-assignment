@@ -42,7 +42,7 @@ const DataTable: React.FC<DataTableProps> = ({
   handleOnEditClick,
 }) => {
   return (
-    <TableContainer component={Paper} style={{ height: 460, width: "100%" }}>
+    <TableContainer component={Paper} style={{ height: 420, width: "100%" }}>
       <Table sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>
@@ -63,23 +63,25 @@ const DataTable: React.FC<DataTableProps> = ({
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
-            <StyledTableRow key={row.id}>
-              <StyledTableCell>{index + 1}</StyledTableCell>
-              <StyledTableCell component="th" scope="row">
-                {row.name}
-              </StyledTableCell>
-              <StyledTableCell>{row.durationInMonths}</StyledTableCell>
-              <StyledTableCell align="right">
-                <Button
-                  labelText={"Edit"}
-                  handleOnClick={() => {
-                    handleOnEditClick(row);
-                  }}
-                />
-              </StyledTableCell>
-            </StyledTableRow>
-          ))}
+          {rows
+            ?.map?.((row, index) => (
+              <StyledTableRow key={row.id}>
+                <StyledTableCell>{index + 1}</StyledTableCell>
+                <StyledTableCell component="th" scope="row">
+                  {row.name}
+                </StyledTableCell>
+                <StyledTableCell>{row.durationInMonths}</StyledTableCell>
+                <StyledTableCell align="right">
+                  <Button
+                    labelText={"Edit"}
+                    handleOnClick={() => {
+                      handleOnEditClick(row);
+                    }}
+                  />
+                </StyledTableCell>
+              </StyledTableRow>
+            ))
+            ?.reverse()}
         </TableBody>
       </Table>
     </TableContainer>

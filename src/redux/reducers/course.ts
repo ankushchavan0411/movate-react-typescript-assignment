@@ -8,7 +8,6 @@ const initialState: CourseState = {
     { id: "22sfsd1", name: "Full Stack Development", durationInMonths: 18 },
     { id: "sdfsd2", name: "Front End Development", durationInMonths: 9 },
     { id: "jlksf3", name: "Backend with Java", durationInMonths: 12 },
-    { id: "sdsd4", name: "UI/UX Development", durationInMonths: 6 },
     { id: "sdsds5", name: "Blockchain Development", durationInMonths: 6 },
     {
       id: "sfsdfsdfds6",
