@@ -1,7 +1,7 @@
 /** @format */
 import { Route, Routes } from "react-router-dom";
-import Course from "../components/Course";
 import Teacher from "../components/Teacher";
+import Course from "../components/course";
 import { ROUTES } from "../const";
 
 const Pages = () => {
