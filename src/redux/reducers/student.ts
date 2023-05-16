@@ -6,9 +6,41 @@ import { IStudent, StudentAction, StudentState } from "../../types/types";
 const initialState: StudentState = {
   students: [
     {
+      id: "ses3dssd2",
+      name: "Aishwarya Ingole",
+      age: 23,
+      grades: "A+",
+      college: "GICA College",
+      city: "Aurangabad",
+    },
+    {
+      id: "sfs5dssd5",
+      name: "Rahul Vanarse",
+      age: 30,
+      grades: "B+",
+      college: "Vasantrao Naik College",
+      city: "Aurangabad",
+    },
+    {
+      id: "lfk3dssd3",
+      name: "Yogita Kadam",
+      age: 24,
+      grades: "A++",
+      college: "Yashwant College",
+      city: "Nanded",
+    },
+    {
+      id: "jhfh4dssd4",
+      name: "Vijay Dhangar",
+      age: 29,
+      grades: "O",
+      college: "Vasantrao Naik College",
+      city: "Aurangabad",
+    },
+    {
       id: "sfs2dssd1",
       name: "Priti More",
-      age: 25,
+      age: 23,
       grades: "A++",
       college: "MGM College",
       city: "Pune",
