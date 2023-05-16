@@ -34,7 +34,7 @@ const initialState: TeacherState = {
       college: "Peoples College",
     },
     {
-      id: "err4dssd4",
+      id: "erwww4dssd4",
       name: "Dr. Simran Maniyar",
       age: 29,
       subject: "Commerce and Finance",
