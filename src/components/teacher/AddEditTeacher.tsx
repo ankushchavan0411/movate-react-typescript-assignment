@@ -1,0 +1,93 @@
+/** @format */
+import Box from "@mui/material/Box";
+import TextField from "@mui/material/TextField";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "redux";
+import { addCourse, editCourse } from "../../redux/actions/courseAction";
+import { getUniqueId } from "../../utils";
+import Buttons from "../common/Button";
+
+interface Props {
+  setOpen(isOpen: boolean): any;
+  teacher?: any;
+  isEdit?: boolean;
+}
+
+const AddEditTeacher: React.FC<Props> = ({ setOpen, teacher, isEdit }) => {
+  const [courseName, setCourseName] = useState("");
+  const [courseDuration, setCourseDuration] = useState("");
+
+  useEffect(() => {
+    // setCourseName(course?.name);
+    // setCourseDuration(course?.durationInMonths);
+  }, [teacher]);
+
+  const dispatch: Dispatch<any> = useDispatch();
+
+  const handleOnSubmit = () => {
+    if (isEdit) {
+      dispatch(
+        editCourse({
+          ...teacher,
+          name: courseName,
+          durationInMonths: courseDuration,
+        })
+      );
+    } else {
+      dispatch(
+        addCourse({
+          id: getUniqueId(),
+          name: courseName,
+          durationInMonths: courseDuration,
+        })
+      );
+    }
+    setOpen(false);
+  };
+
+  return (
+    <React.Fragment>
+      <Box
+        component="form"
+        sx={{
+          "& .MuiTextField-root": { m: 1, width: "100%" },
+        }}
+        noValidate
+        autoComplete="off"
+      >
+        <div>
+          <TextField
+            error={!courseName}
+            required
+            id="outlined-required"
+            label="Course Name"
+            value={courseName}
+            onChange={(e: any): void => setCourseName(e.target.value)}
+            autoFocus
+          />
+        </div>
+        <div>
+          <TextField
+            error={!courseDuration}
+            value={courseDuration}
+            id="outlined-number"
+            label="Course Duration-(In Months)"
+            type="number"
+            InputLabelProps={{
+              shrink: true,
+            }}
+            onChange={(e: any): void => setCourseDuration(e.target.value)}
+          />
+        </div>
+        <Buttons
+          labelText={isEdit ? "Update" : "Submit"}
+          handleOnClick={handleOnSubmit}
+          disabled={!courseDuration || !courseName}
+        />
+      </Box>
+    </React.Fragment>
+  );
+};
+
+export default AddEditTeacher;

@@ -15,7 +15,10 @@ const MainHeader: React.FC<Props> = ({ handleOnClick, labelText }) => {
           <h1>{labelText}</h1>
         </Grid>
         <Grid xs={2}>
-          <Buttons labelText="Add New Course" handleOnClick={handleOnClick} />
+          <Buttons
+            labelText={`Add ${labelText}`}
+            handleOnClick={handleOnClick}
+          />
         </Grid>
       </Grid>
     </section>

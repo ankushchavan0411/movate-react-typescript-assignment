@@ -1,23 +1,26 @@
 /** @format */
+
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
 import DataModal from "../common/DataModal";
 import DataTable from "../common/DataTable";
 import MainHeader from "../common/MainHeader";
-import AddEditCourse from "./AddEditCourse";
+import AddEditTeacher from "./AddEditTeacher";
 
-const Course = () => {
+const Teacher = () => {
   const { courses } = useSelector((state: AppState) => state.courses);
   const [isOpen, setOpen] = React.useState(false);
-  const [course, setCourse] = useState({});
+  const [teacher, setTeacher] = useState({});
   const [isEdit, setEdit] = useState(false);
 
   const columns = [
     { field: "id", headerName: "ID", width: 100 },
-    { field: "name", headerName: "Course Name", width: 500 },
-    { field: "durationInMonths", headerName: "Course Duration", width: 300 },
-    { field: "action", headerName: "Action", width: 300 },
+    { field: "name", headerName: "Name", width: 200 },
+    { field: "age", headerName: "Age", width: 100 },
+    { field: "subject", headerName: "Subject", width: 200 },
+    { field: "college", headerName: "College", width: 200 },
+    { field: "action", headerName: "Action", width: 200 },
   ];
 
   return (
@@ -25,23 +28,23 @@ const Course = () => {
       <DataModal
         setOpen={setOpen}
         isOpen={isOpen}
-        modalTitle={`${isEdit ? "Edit" : "Add"} Course`}
+        modalTitle={`${isEdit ? "Edit" : "Add"} Teacher`}
       >
-        <AddEditCourse setOpen={setOpen} course={course} isEdit={isEdit} />
+        <AddEditTeacher setOpen={setOpen} teacher={teacher} isEdit={isEdit} />
       </DataModal>
       <MainHeader
         handleOnClick={() => {
           setOpen(true);
-          setCourse({});
+          setTeacher({});
           setEdit(false);
         }}
-        labelText="COURSE"
+        labelText="TEACHER"
       />
       <DataTable
         columns={columns}
         rows={courses}
-        handleOnEditClick={(course: any): void => {
-          setCourse(course);
+        handleOnEditClick={(teacher: any): void => {
+          setTeacher(teacher);
           setOpen(true);
           setEdit(true);
         }}
@@ -49,4 +52,4 @@ const Course = () => {
     </React.Fragment>
   );
 };
-export default Course;
+export default Teacher;
