@@ -14,3 +14,10 @@ export const TEACHER_TABLE_COLS = [
   { field: "college", headerName: "College", width: 200 },
   { field: "action", headerName: "Action", width: 200 },
 ];
+
+export const COURSE_TABLE_COLS = [
+  { field: "id", headerName: "ID", width: 100 },
+  { field: "name", headerName: "Course Name", width: 500 },
+  { field: "durationInMonths", headerName: "Course Duration", width: 300 },
+  { field: "action", headerName: "Action", width: 300 },
+];
