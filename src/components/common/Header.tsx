@@ -15,9 +15,6 @@ const Header = () => {
       >
         Myapp
       </Typography>
-      <NavLink to="/" className={({ isActive }) => (isActive ? "active" : "")}>
-        {HOME}
-      </NavLink>
       <NavLink
         to={COURSE}
         className={({ isActive }) => (isActive ? "active" : "")}

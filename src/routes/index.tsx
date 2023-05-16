@@ -1,9 +1,9 @@
 /** @format */
 import { Route, Routes } from "react-router-dom";
 import Course from "../components/course";
-import { ROUTES } from "../const";
-import Teacher from "../components/teacher";
 import Student from "../components/student";
+import Teacher from "../components/teacher";
+import { ROUTES } from "../const";
 
 const Pages = () => {
   const { COURSE, TEACHER, STUDENT } = ROUTES;
