@@ -1,8 +1,5 @@
 /** @format */
 
-import TableCell, { tableCellClasses } from "@mui/material/TableCell";
-import TableRow from "@mui/material/TableRow";
-import { styled } from "@mui/material/styles";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { AppState } from "../../redux/store";
@@ -11,6 +8,7 @@ import Buttons from "../common/Button";
 import DataModal from "../common/DataModal";
 import DataTable from "../common/DataTable";
 import MainHeader from "../common/MainHeader";
+import { StyledTableCell, StyledTableRow } from "../common/style";
 import AddEditTeacher from "./AddEditTeacher";
 
 const Teacher = () => {
@@ -27,26 +25,6 @@ const Teacher = () => {
     { field: "college", headerName: "College", width: 200 },
     { field: "action", headerName: "Action", width: 200 },
   ];
-
-  const StyledTableCell = styled(TableCell)(({ theme }) => ({
-    [`&.${tableCellClasses.head}`]: {
-      backgroundColor: theme.palette.common.black,
-      color: theme.palette.common.white,
-    },
-    [`&.${tableCellClasses.body}`]: {
-      fontSize: 14,
-    },
-  }));
-
-  const StyledTableRow = styled(TableRow)(({ theme }) => ({
-    "&:nth-of-type(odd)": {
-      backgroundColor: theme.palette.action.hover,
-    },
-    // hide last border
-    "&:last-child td, &:last-child th": {
-      border: 0,
-    },
-  }));
 
   interface Props {
     handleOnEditClick(teacher: ITeacher): any;
