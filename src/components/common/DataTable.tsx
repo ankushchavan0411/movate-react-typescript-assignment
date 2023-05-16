@@ -37,49 +37,47 @@ interface DataTableProps {
 }
 const DataTable: React.FC<DataTableProps> = ({ rows, columns }) => {
   return (
-    <div style={{ height: 470, width: "100%" }}>
-      <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
-          <TableHead>
-            <TableRow>
-              {columns?.map((col) => {
-                if (col?.field === "action") {
-                  return (
-                    <StyledTableCell key={col?.field} align="right">
-                      Action
-                    </StyledTableCell>
-                  );
-                }
+    <TableContainer component={Paper} style={{ height: 460, width: "100%" }}>
+      <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <TableHead>
+          <TableRow>
+            {columns?.map((col) => {
+              if (col?.field === "action") {
                 return (
-                  <StyledTableCell key={col?.field}>
-                    {col?.headerName}
+                  <StyledTableCell key={col?.field} align="right">
+                    Action
                   </StyledTableCell>
                 );
-              })}
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <StyledTableRow key={row.name}>
-                <StyledTableCell>{row.id}</StyledTableCell>
-                <StyledTableCell component="th" scope="row">
-                  {row.name}
+              }
+              return (
+                <StyledTableCell key={col?.field}>
+                  {col?.headerName}
                 </StyledTableCell>
-                <StyledTableCell>{row.durationInMonths}</StyledTableCell>
-                <StyledTableCell align="right">
-                  <Button
-                    labelText={"Edit"}
-                    handleOnClick={() => {
-                      console.log("button click");
-                    }}
-                  />
-                </StyledTableCell>
-              </StyledTableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </div>
+              );
+            })}
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {rows.map((row) => (
+            <StyledTableRow key={row.name}>
+              <StyledTableCell>{row.id}</StyledTableCell>
+              <StyledTableCell component="th" scope="row">
+                {row.name}
+              </StyledTableCell>
+              <StyledTableCell>{row.durationInMonths}</StyledTableCell>
+              <StyledTableCell align="right">
+                <Button
+                  labelText={"Edit"}
+                  handleOnClick={() => {
+                    console.log("button click");
+                  }}
+                />
+              </StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
   );
 };
 export default DataTable;

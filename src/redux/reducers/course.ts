@@ -4,7 +4,18 @@ import { ADD_COURSE, EDIT_COURSE } from "../../const/actionTypes";
 import { CourseAction, CourseState, ICourse } from "../../const/types";
 
 const initialState: CourseState = {
-  courses: [],
+  courses: [
+    { id: 1, name: "Full Stack Development", durationInMonths: 18 },
+    { id: 2, name: "Front End Development", durationInMonths: 9 },
+    { id: 3, name: "Backend with Java", durationInMonths: 12 },
+    { id: 4, name: "UI/UX Development", durationInMonths: 6 },
+    { id: 5, name: "Blockchain Development", durationInMonths: 6 },
+    {
+      id: 6,
+      name: "Data Science with Python",
+      durationInMonths: 24,
+    },
+  ],
 };
 
 /**
