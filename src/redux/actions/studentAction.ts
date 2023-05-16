@@ -7,7 +7,7 @@ import {
   StudentAction,
 } from "../../types/types";
 
-export function addTeacher(student: IStudent) {
+export function addStudent(student: IStudent) {
   const action: StudentAction = {
     type: ADD_STUDENT,
     student,
@@ -18,7 +18,7 @@ export function addTeacher(student: IStudent) {
   };
 }
 
-export function editTeacher(student: IStudent) {
+export function editStudent(student: IStudent) {
   const action: StudentAction = {
     type: EDIT_STUDENT,
     student,

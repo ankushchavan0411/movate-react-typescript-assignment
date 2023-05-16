@@ -8,7 +8,7 @@ import DataModal from "../common/DataModal";
 import DataTable from "../common/DataTable";
 import MainHeader from "../common/MainHeader";
 import AddEditTeacher from "./AddEditTeacher";
-import TableRows from "./TeacherTableRows";
+import TeacherTableRows from "./TeacherTableRows";
 
 const Teacher = () => {
   const { teachers } = useSelector((state: AppState) => state.teachers);
@@ -36,7 +36,7 @@ const Teacher = () => {
       <DataTable
         columns={TEACHER_TABLE_COLS}
         render={
-          <TableRows
+          <TeacherTableRows
             handleOnEditClick={(teacher: any): void => {
               setTeacher(teacher);
               setOpen(true);
