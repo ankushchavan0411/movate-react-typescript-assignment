@@ -34,7 +34,7 @@ const DataTable: React.FC<DataTableProps> = ({ columns, render }) => {
             })}
           </TableRow>
         </TableHead>
-        <TableBody>{render}</TableBody>
+        <TableBody className="text-capitalize">{render}</TableBody>
       </Table>
     </TableContainer>
   );
