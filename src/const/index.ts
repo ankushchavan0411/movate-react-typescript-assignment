@@ -39,5 +39,5 @@ export const ALERT_TYPES = {
   SUCCESS: "success",
 };
 
-export const ADD_MESSAGE_TEXT = "added successfully";
-export const UPDATE_MESSAGE_TEXT = "updated succesfully";
+export const ADD_MESSAGE_TEXT = "added successfully..!";
+export const UPDATE_MESSAGE_TEXT = "data updated succesfully..!";
