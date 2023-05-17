@@ -14,7 +14,7 @@ const CourseTableRows: React.FC<Props> = ({ handleOnEditClick, courses }) => {
   return (
     <React.Fragment>
       {courses
-        ?.map?.((course: ICourse, index: number) => (
+        ?.map?.((course, index) => (
           <StyledTableRow key={course.id}>
             <StyledTableCell>{index + 1}</StyledTableCell>
             <StyledTableCell component="th" scope="row">

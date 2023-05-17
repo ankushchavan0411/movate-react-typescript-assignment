@@ -38,7 +38,7 @@ const Student = () => {
         columns={STUDENT_TABLE_COLS}
         render={
           <StudentTableRows
-            handleOnEditClick={(student: any): void => {
+            handleOnEditClick={(student) => {
               setStudent(student);
               setOpen(true);
               setEdit(true);

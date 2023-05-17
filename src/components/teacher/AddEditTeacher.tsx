@@ -4,20 +4,21 @@ import TextField from "@mui/material/TextField";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
-import { addTeacher, editTeacher } from "../../redux/actions/teacherAction";
-import { getUniqueId } from "../../utils";
-import Buttons from "../common/Button";
-import { alertMessage } from "../../redux/actions/alertsAction";
 import {
   ADD_MESSAGE_TEXT,
   ALERT_TYPES,
   UPDATE_MESSAGE_TEXT,
 } from "../../const";
+import { alertMessage } from "../../redux/actions/alertsAction";
+import { addTeacher, editTeacher } from "../../redux/actions/teacherAction";
+import { ITeacher } from "../../types/types";
+import { getUniqueId } from "../../utils";
+import Buttons from "../common/Button";
 
 interface Props {
-  setOpen(isOpen: boolean): any;
-  teacher?: any;
-  isEdit?: boolean;
+  setOpen: (isOpen: boolean) => void;
+  teacher: ITeacher;
+  isEdit: boolean;
 }
 
 const AddEditTeacher: React.FC<Props> = ({ setOpen, teacher, isEdit }) => {

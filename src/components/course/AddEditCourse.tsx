@@ -18,7 +18,7 @@ import Buttons from "../common/Button";
 interface Props {
   setOpen: (isOpen: boolean) => void;
   course: ICourse;
-  isEdit?: boolean;
+  isEdit: boolean;
 }
 
 const AddEditCourse: React.FC<Props> = ({ setOpen, course, isEdit }) => {

@@ -6,15 +6,15 @@ import Buttons from "../common/Button";
 import { StyledTableCell, StyledTableRow } from "../common/style";
 
 interface Props {
-  handleOnEditClick(teacher: ITeacher): any;
-  teachers: any;
+  handleOnEditClick: (teacher: ITeacher) => void;
+  teachers: ITeacher[];
 }
 
 const TeacherTableRows: React.FC<Props> = ({ handleOnEditClick, teachers }) => {
   return (
     <React.Fragment>
       {teachers
-        ?.map?.((teacher: ITeacher, index: number) => (
+        ?.map?.((teacher, index) => (
           <StyledTableRow key={teacher.id}>
             <StyledTableCell>{index + 1}</StyledTableCell>
             <StyledTableCell component="th" scope="row">

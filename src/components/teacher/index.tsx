@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { TEACHER_TABLE_COLS } from "../../const";
 import { AppState } from "../../redux/store";
+import { ITeacher } from "../../types/types";
 import DataModal from "../common/DataModal";
 import DataTable from "../common/DataTable";
 import MainHeader from "../common/MainHeader";
@@ -13,7 +14,7 @@ import TeacherTableRows from "./TeacherTableRows";
 const Teacher = () => {
   const { teachers } = useSelector((state: AppState) => state.teachers);
   const [isOpen, setOpen] = React.useState(false);
-  const [teacher, setTeacher] = useState({});
+  const [teacher, setTeacher] = useState({} as ITeacher);
   const [isEdit, setEdit] = useState(false);
 
   return (
@@ -28,7 +29,7 @@ const Teacher = () => {
       <MainHeader
         handleOnClick={() => {
           setOpen(true);
-          setTeacher({});
+          setTeacher({} as ITeacher);
           setEdit(false);
         }}
         labelText="TEACHER"
@@ -37,7 +38,7 @@ const Teacher = () => {
         columns={TEACHER_TABLE_COLS}
         render={
           <TeacherTableRows
-            handleOnEditClick={(teacher: any): void => {
+            handleOnEditClick={(teacher) => {
               setTeacher(teacher);
               setOpen(true);
               setEdit(true);
