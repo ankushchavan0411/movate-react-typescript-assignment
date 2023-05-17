@@ -1,6 +1,10 @@
 /** @format */
 
-import { ADD_COURSE, EDIT_COURSE } from "../../const/actionTypes";
+import {
+  ADD_COURSE,
+  DELETE_COURSE,
+  EDIT_COURSE,
+} from "../../const/actionTypes";
 import { CourseAction, CourseState, ICourse } from "../../types/types";
 
 const initialState: CourseState = {
@@ -48,6 +52,14 @@ const CourseReducer = (
       return {
         ...state,
         courses: updatedCourses,
+      };
+
+    case DELETE_COURSE:
+      return {
+        ...state,
+        courses: state.courses.filter(
+          (course) => course.id !== action.course.id
+        ),
       };
   }
   return state;

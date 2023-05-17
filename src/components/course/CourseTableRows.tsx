@@ -4,6 +4,11 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Stack from "@mui/material/Stack";
 import React from "react";
+import { useDispatch } from "react-redux";
+import { Dispatch } from "redux";
+import { ALERT_TYPES, DELETE_MESSAGE_TEXT } from "../../const";
+import { alertMessage } from "../../redux/actions/alertsAction";
+import { deleteCourse } from "../../redux/actions/courseAction";
 import { ICourse } from "../../types/types";
 import Buttons from "../common/Button";
 import { StyledTableCell, StyledTableRow } from "../common/style";
@@ -14,6 +19,8 @@ interface Props {
 }
 
 const CourseTableRows: React.FC<Props> = ({ handleOnEditClick, courses }) => {
+  const dispatch: Dispatch<any> = useDispatch();
+
   return (
     <React.Fragment>
       {courses
@@ -38,7 +45,13 @@ const CourseTableRows: React.FC<Props> = ({ handleOnEditClick, courses }) => {
                   color="error"
                   labelText={"Delete"}
                   handleOnClick={() => {
-                    handleOnEditClick(course);
+                    dispatch(deleteCourse(course));
+                    dispatch(
+                      alertMessage({
+                        text: `${course?.name} course ${DELETE_MESSAGE_TEXT}`,
+                        type: ALERT_TYPES?.INFO,
+                      })
+                    );
                   }}
                 />
               </Stack>

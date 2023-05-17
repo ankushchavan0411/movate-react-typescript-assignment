@@ -41,3 +41,4 @@ export const ALERT_TYPES = {
 
 export const ADD_MESSAGE_TEXT = "added successfully..!";
 export const UPDATE_MESSAGE_TEXT = "data updated succesfully..!";
+export const DELETE_MESSAGE_TEXT = "deleted succesfully..!";

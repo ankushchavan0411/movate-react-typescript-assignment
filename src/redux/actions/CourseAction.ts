@@ -1,6 +1,10 @@
 /** @format */
 
-import { ADD_COURSE, EDIT_COURSE } from "../../const/actionTypes";
+import {
+  ADD_COURSE,
+  DELETE_COURSE,
+  EDIT_COURSE,
+} from "../../const/actionTypes";
 import { CourseAction, DispatchType, ICourse } from "../../types/types";
 
 export function addCourse(course: ICourse) {
@@ -17,6 +21,17 @@ export function addCourse(course: ICourse) {
 export function editCourse(course: ICourse) {
   const action: CourseAction = {
     type: EDIT_COURSE,
+    course,
+  };
+
+  return (dispatch: DispatchType) => {
+    dispatch(action);
+  };
+}
+
+export function deleteCourse(course: ICourse) {
+  const action: CourseAction = {
+    type: DELETE_COURSE,
     course,
   };
 
