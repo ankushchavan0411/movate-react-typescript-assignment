@@ -4,7 +4,7 @@ import { NavLink, Outlet } from "react-router-dom";
 import { ROUTES } from "../../const";
 
 const Header = () => {
-  const { HOME, COURSE, TEACHER, STUDENT } = ROUTES;
+  const { COURSE, TEACHER, STUDENT } = ROUTES;
   return (
     <header>
       <Typography

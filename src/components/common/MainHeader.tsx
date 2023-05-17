@@ -1,5 +1,6 @@
 /** @format */
 import Grid from "@mui/material/Unstable_Grid2";
+import Alerts from "./Alerts";
 import Buttons from "./Button";
 
 interface Props {
@@ -21,6 +22,7 @@ const MainHeader: React.FC<Props> = ({ handleOnClick, labelText }) => {
           />
         </Grid>
       </Grid>
+      <Alerts />
     </section>
   );
 };

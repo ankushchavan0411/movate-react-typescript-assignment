@@ -67,3 +67,23 @@ export type StudentAction = {
 };
 
 export type DispatchTypeStudent = (args: StudentAction) => StudentAction;
+
+/**
+ * @ankushchavan0411
+ * @description Define Alerts types here
+ */
+export interface IAlerts {
+  type: any;
+  text: string;
+}
+
+export type AlertsState = {
+  alert: IAlerts;
+};
+
+export type AlertsAction = {
+  type: string;
+  alert: IAlerts;
+};
+
+export type DispatchTypeAlertsMessage = (args: AlertsAction) => AlertsAction;
