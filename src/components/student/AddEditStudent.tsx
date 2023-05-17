@@ -4,6 +4,12 @@ import TextField from "@mui/material/TextField";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
+import {
+  ADD_MESSAGE_TEXT,
+  ALERT_TYPES,
+  UPDATE_MESSAGE_TEXT,
+} from "../../const";
+import { alertMessage } from "../../redux/actions/alertsAction";
 import { addStudent, editStudent } from "../../redux/actions/studentAction";
 import { getUniqueId } from "../../utils";
 import Buttons from "../common/Button";
@@ -43,6 +49,12 @@ const AddEditStudent: React.FC<Props> = ({ setOpen, student, isEdit }) => {
           city,
         })
       );
+      dispatch(
+        alertMessage({
+          text: `${name} studnet ${UPDATE_MESSAGE_TEXT}`,
+          type: ALERT_TYPES?.INFO,
+        })
+      );
     } else {
       dispatch(
         addStudent({
@@ -52,6 +64,12 @@ const AddEditStudent: React.FC<Props> = ({ setOpen, student, isEdit }) => {
           grades,
           college,
           city,
+        })
+      );
+      dispatch(
+        alertMessage({
+          text: `${name} new student ${ADD_MESSAGE_TEXT}`,
+          type: ALERT_TYPES?.SUCCESS,
         })
       );
     }
