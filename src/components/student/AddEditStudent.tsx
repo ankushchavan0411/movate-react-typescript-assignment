@@ -11,12 +11,13 @@ import {
 } from "../../const";
 import { alertMessage } from "../../redux/actions/alertsAction";
 import { addStudent, editStudent } from "../../redux/actions/studentAction";
+import { IStudent } from "../../types/types";
 import { getUniqueId } from "../../utils";
 import Buttons from "../common/Button";
 
 interface Props {
-  setOpen(isOpen: boolean): any;
-  student: any;
+  setOpen: (isOpen: boolean) => void;
+  student: IStudent;
   isEdit?: boolean;
 }
 

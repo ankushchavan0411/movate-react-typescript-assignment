@@ -4,7 +4,7 @@ import Button from "@mui/material/Button";
 
 interface Props {
   labelText: string;
-  handleOnClick(): any;
+  handleOnClick: () => void;
   disabled?: boolean;
 }
 

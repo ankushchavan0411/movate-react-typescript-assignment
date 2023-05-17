@@ -6,8 +6,8 @@ import Buttons from "../common/Button";
 import { StyledTableCell, StyledTableRow } from "../common/style";
 
 interface Props {
-  handleOnEditClick(course: ICourse): any;
-  courses: any;
+  handleOnEditClick: (course: ICourse) => void;
+  courses: ICourse[];
 }
 
 const CourseTableRows: React.FC<Props> = ({ handleOnEditClick, courses }) => {

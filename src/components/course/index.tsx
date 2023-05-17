@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { COURSE_TABLE_COLS } from "../../const";
 import { AppState } from "../../redux/store";
+import { ICourse } from "../../types/types";
 import DataModal from "../common/DataModal";
 import DataTable from "../common/DataTable";
 import MainHeader from "../common/MainHeader";
@@ -12,7 +13,7 @@ import CourseTableRows from "./CourseTableRows";
 const Course = () => {
   const { courses } = useSelector((state: AppState) => state.courses);
   const [isOpen, setOpen] = React.useState(false);
-  const [course, setCourse] = useState({});
+  const [course, setCourse] = useState({} as ICourse);
   const [isEdit, setEdit] = useState(false);
 
   return (
@@ -27,7 +28,7 @@ const Course = () => {
       <MainHeader
         handleOnClick={() => {
           setOpen(true);
-          setCourse({});
+          setCourse({} as ICourse);
           setEdit(false);
         }}
         labelText="COURSE"
@@ -36,7 +37,7 @@ const Course = () => {
         columns={COURSE_TABLE_COLS}
         render={
           <CourseTableRows
-            handleOnEditClick={(course: any): void => {
+            handleOnEditClick={(course) => {
               setCourse(course);
               setOpen(true);
               setEdit(true);

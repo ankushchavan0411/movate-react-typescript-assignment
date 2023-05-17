@@ -17,7 +17,7 @@ const style = {
 };
 
 interface Props {
-  setOpen(isOpen: boolean): any;
+  setOpen: (isOpen: boolean) => void;
   isOpen: boolean;
   modalTitle: string;
   children: React.ReactNode;

@@ -10,7 +10,7 @@ import { StyledTableCell } from "./style";
 
 interface DataTableProps {
   columns: GridColDef[];
-  render?: any;
+  render?: React.ReactNode;
 }
 const DataTable: React.FC<DataTableProps> = ({ columns, render }) => {
   return (

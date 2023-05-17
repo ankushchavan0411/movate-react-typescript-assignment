@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { STUDENT_TABLE_COLS } from "../../const";
 import { AppState } from "../../redux/store";
+import { IStudent } from "../../types/types";
 import DataModal from "../common/DataModal";
 import DataTable from "../common/DataTable";
 import MainHeader from "../common/MainHeader";
@@ -13,7 +14,7 @@ import StudentTableRows from "./StudentTableRows";
 const Student = () => {
   const { students } = useSelector((state: AppState) => state.students);
   const [isOpen, setOpen] = React.useState(false);
-  const [student, setStudent] = useState({});
+  const [student, setStudent] = useState({} as IStudent);
   const [isEdit, setEdit] = useState(false);
 
   return (
@@ -28,7 +29,7 @@ const Student = () => {
       <MainHeader
         handleOnClick={() => {
           setOpen(true);
-          setStudent({});
+          setStudent({} as IStudent);
           setEdit(false);
         }}
         labelText="STUDENT"

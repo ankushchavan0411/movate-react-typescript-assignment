@@ -4,7 +4,7 @@ import Alerts from "./Alerts";
 import Buttons from "./Button";
 
 interface Props {
-  handleOnClick(): any;
+  handleOnClick: () => void;
   labelText: string;
 }
 
