@@ -1,5 +1,8 @@
 /** @format */
 
+import DeleteIcon from "@mui/icons-material/Delete";
+import EditIcon from "@mui/icons-material/Edit";
+import Stack from "@mui/material/Stack";
 import React from "react";
 import { ICourse } from "../../types/types";
 import Buttons from "../common/Button";
@@ -22,12 +25,23 @@ const CourseTableRows: React.FC<Props> = ({ handleOnEditClick, courses }) => {
             </StyledTableCell>
             <StyledTableCell>{course.durationInMonths}</StyledTableCell>
             <StyledTableCell align="right">
-              <Buttons
-                labelText={"Edit"}
-                handleOnClick={() => {
-                  handleOnEditClick(course);
-                }}
-              />
+              <Stack spacing={2} direction="row">
+                <Buttons
+                  startIcon={<EditIcon />}
+                  labelText={"Edit"}
+                  handleOnClick={() => {
+                    handleOnEditClick(course);
+                  }}
+                />
+                <Buttons
+                  startIcon={<DeleteIcon />}
+                  color="error"
+                  labelText={"Delete"}
+                  handleOnClick={() => {
+                    handleOnEditClick(course);
+                  }}
+                />
+              </Stack>
             </StyledTableCell>
           </StyledTableRow>
         ))
