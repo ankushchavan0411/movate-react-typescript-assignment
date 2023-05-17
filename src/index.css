@@ -99,3 +99,11 @@ footer {
 .page-not-found h2 {
   margin-bottom: 40px;
 }
+
+/* *********************** ---- Loader CSS ---- ****************************** */
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin-top: 150px;
+}

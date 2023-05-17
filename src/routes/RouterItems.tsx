@@ -1,6 +1,7 @@
 /** @format */
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Loader from "../components/common/Loader";
 import PageNotFound from "../components/common/PageNotFound";
 import RoutesList from "./RoutesList";
 
@@ -12,7 +13,7 @@ const RouterItems = () => {
           key={route?.path}
           path={route?.path}
           element={
-            <React.Suspense fallback={<>Loading...</>}>
+            <React.Suspense fallback={<Loader />}>
               <route.Component />
             </React.Suspense>
           }
