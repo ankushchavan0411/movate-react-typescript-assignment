@@ -27,6 +27,10 @@ const Alerts: React.FC<AlertsProps> = () => {
     }
   }, [alert]);
 
+  React.useEffect(() => {
+    dispatch(alertMessage({ text: "", type: "" }));
+  }, [dispatch]);
+
   return (
     <Box sx={{ width: "100%" }}>
       <Collapse in={open}>
