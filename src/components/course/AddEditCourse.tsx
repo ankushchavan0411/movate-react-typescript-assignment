@@ -4,6 +4,12 @@ import TextField from "@mui/material/TextField";
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
+import {
+  ADD_MESSAGE_TEXT,
+  ALERT_TYPES,
+  UPDATE_MESSAGE_TEXT,
+} from "../../const";
+import { alertMessage } from "../../redux/actions/alertsAction";
 import { addCourse, editCourse } from "../../redux/actions/courseAction";
 import { getUniqueId } from "../../utils";
 import Buttons from "../common/Button";
@@ -34,12 +40,24 @@ const AddEditCourse: React.FC<Props> = ({ setOpen, course, isEdit }) => {
           durationInMonths: courseDuration,
         })
       );
+      dispatch(
+        alertMessage({
+          text: `${courseName} course ${UPDATE_MESSAGE_TEXT}`,
+          type: ALERT_TYPES?.INFO,
+        })
+      );
     } else {
       dispatch(
         addCourse({
           id: getUniqueId(),
           name: courseName,
           durationInMonths: courseDuration,
+        })
+      );
+      dispatch(
+        alertMessage({
+          text: `${courseName} new course ${ADD_MESSAGE_TEXT}`,
+          type: ALERT_TYPES?.SUCCESS,
         })
       );
     }

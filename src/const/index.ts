@@ -31,3 +31,13 @@ export const STUDENT_TABLE_COLS = [
   { field: "city", headerName: "City", width: 200 },
   { field: "action", headerName: "Action", width: 200 },
 ];
+
+export const ALERT_TYPES = {
+  ERROR: "error",
+  WARNING: "warning",
+  INFO: "info",
+  SUCCESS: "success",
+};
+
+export const ADD_MESSAGE_TEXT = "added successfully";
+export const UPDATE_MESSAGE_TEXT = "updated succesfully";

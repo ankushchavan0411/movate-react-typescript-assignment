@@ -7,7 +7,9 @@ import Box from "@mui/material/Box";
 import Collapse from "@mui/material/Collapse";
 import IconButton from "@mui/material/IconButton";
 import * as React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { Dispatch } from "redux";
+import { alertMessage } from "../../redux/actions/alertsAction";
 import { AppState } from "../../redux/store";
 
 interface AlertsProps {}
@@ -15,6 +17,7 @@ interface AlertsProps {}
 const Alerts: React.FC<AlertsProps> = () => {
   const [open, setOpen] = React.useState(false);
   const { alert } = useSelector((state: AppState) => state.alert);
+  const dispatch: Dispatch<any> = useDispatch();
 
   React.useEffect(() => {
     if (alert.text !== "" && alert.type !== "") {
@@ -35,7 +38,7 @@ const Alerts: React.FC<AlertsProps> = () => {
               color="inherit"
               size="small"
               onClick={() => {
-                setOpen(false);
+                dispatch(alertMessage({ text: "", type: "" }));
               }}
             >
               <CloseIcon fontSize="inherit" />
@@ -43,8 +46,8 @@ const Alerts: React.FC<AlertsProps> = () => {
           }
           sx={{ mb: 2 }}
         >
-          <AlertTitle>{alert?.type}</AlertTitle>
-          <strong>{alert?.text}</strong>
+          <AlertTitle className="text-uppercase">{alert?.type}</AlertTitle>
+          <strong className="text-capitalize">{alert?.text}</strong>
         </Alert>
       </Collapse>
     </Box>
