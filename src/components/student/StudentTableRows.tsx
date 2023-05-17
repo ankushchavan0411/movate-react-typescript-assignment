@@ -4,6 +4,7 @@ import React from "react";
 import { IStudent } from "../../types/types";
 import Buttons from "../common/Button";
 import { StyledTableCell, StyledTableRow } from "../common/style";
+import EditIcon from "@mui/icons-material/Edit";
 
 interface Props {
   handleOnEditClick: (student: IStudent) => void;
@@ -26,6 +27,7 @@ const StudentTableRows: React.FC<Props> = ({ handleOnEditClick, students }) => {
             <StyledTableCell>{student.city}</StyledTableCell>
             <StyledTableCell align="right">
               <Buttons
+                startIcon={<EditIcon />}
                 labelText={"Edit"}
                 handleOnClick={() => {
                   handleOnEditClick(student);

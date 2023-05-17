@@ -1,5 +1,6 @@
 /** @format */
 
+import EditIcon from "@mui/icons-material/Edit";
 import React from "react";
 import { ITeacher } from "../../types/types";
 import Buttons from "../common/Button";
@@ -25,6 +26,7 @@ const TeacherTableRows: React.FC<Props> = ({ handleOnEditClick, teachers }) => {
             <StyledTableCell>{teacher.subject}</StyledTableCell>
             <StyledTableCell align="right">
               <Buttons
+                startIcon={<EditIcon />}
                 labelText={"Edit"}
                 handleOnClick={() => {
                   handleOnEditClick(teacher);
