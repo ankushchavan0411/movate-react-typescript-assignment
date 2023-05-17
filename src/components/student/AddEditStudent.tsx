@@ -51,7 +51,7 @@ const AddEditStudent: React.FC<Props> = ({ setOpen, student, isEdit }) => {
       );
       dispatch(
         alertMessage({
-          text: `${name} studnet ${UPDATE_MESSAGE_TEXT}`,
+          text: `${name} student ${UPDATE_MESSAGE_TEXT}`,
           type: ALERT_TYPES?.INFO,
         })
       );
