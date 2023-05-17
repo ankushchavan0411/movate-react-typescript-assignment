@@ -49,7 +49,7 @@ const CourseTableRows: React.FC<Props> = ({ handleOnEditClick, courses }) => {
                     dispatch(
                       alertMessage({
                         text: `${course?.name} course ${DELETE_MESSAGE_TEXT}`,
-                        type: ALERT_TYPES?.INFO,
+                        type: ALERT_TYPES?.SUCCESS,
                       })
                     );
                   }}
