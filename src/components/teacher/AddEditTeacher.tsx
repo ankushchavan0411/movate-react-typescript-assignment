@@ -7,6 +7,12 @@ import { Dispatch } from "redux";
 import { addTeacher, editTeacher } from "../../redux/actions/teacherAction";
 import { getUniqueId } from "../../utils";
 import Buttons from "../common/Button";
+import { alertMessage } from "../../redux/actions/alertsAction";
+import {
+  ADD_MESSAGE_TEXT,
+  ALERT_TYPES,
+  UPDATE_MESSAGE_TEXT,
+} from "../../const";
 
 interface Props {
   setOpen(isOpen: boolean): any;
@@ -40,6 +46,12 @@ const AddEditTeacher: React.FC<Props> = ({ setOpen, teacher, isEdit }) => {
           college,
         })
       );
+      dispatch(
+        alertMessage({
+          text: `${name} teacher ${UPDATE_MESSAGE_TEXT}`,
+          type: ALERT_TYPES?.INFO,
+        })
+      );
     } else {
       dispatch(
         addTeacher({
@@ -48,6 +60,12 @@ const AddEditTeacher: React.FC<Props> = ({ setOpen, teacher, isEdit }) => {
           age,
           subject,
           college,
+        })
+      );
+      dispatch(
+        alertMessage({
+          text: `${name} new teacher ${ADD_MESSAGE_TEXT}`,
+          type: ALERT_TYPES?.SUCCESS,
         })
       );
     }
