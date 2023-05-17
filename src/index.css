@@ -107,3 +107,15 @@ footer {
   justify-content: center;
   margin-top: 150px;
 }
+
+/* *********************** ---- NoData CSS ---- ****************************** */
+
+.data-not-available {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 46%;
+  position: absolute;
+  margin-top: 150px;
+  color: #9b9696;
+}
