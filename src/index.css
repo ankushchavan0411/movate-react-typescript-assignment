@@ -20,31 +20,32 @@ body {
 
 /* *********************** ---- Header CSS ---- ****************************** */
 header {
-  width: 100%;
-  top: 0;
-  z-index: 1;
-  position: sticky;
   background-color: rgb(25, 118, 210);
+  position: sticky;
   padding: 16px;
-  display: flex;
-  justify-content: flex-end;
-  text-transform: capitalize;
+  z-index: 1;
+  top: 0;
 }
-header .logo {
+.navbar-section {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+.brand-name .logo {
   font-weight: 700 !important;
   color: #fff;
 }
-header a {
+.nav-link a {
   text-decoration: none;
   color: #fff;
   font-size: 17px;
   margin-right: 20px;
   font-weight: 600;
 }
-header .active {
+.nav-link .active {
   color: black;
 }
-header a:hover {
+.nav-link a:hover {
   color: black;
   transition: 0.6s;
 }
@@ -58,7 +59,6 @@ footer {
   text-align: center;
   color: #fff;
   padding: 15px;
-  width: 100%;
   background-color: #333;
 }
 

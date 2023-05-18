@@ -1,4 +1,7 @@
 /** @format */
+
+export const BRAND_NAME = "Myapp";
+
 export const ROUTES = {
   HOME: "home",
   COURSE: "course",

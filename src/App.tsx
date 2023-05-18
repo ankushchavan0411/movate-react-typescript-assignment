@@ -2,19 +2,19 @@
 import Container from "@mui/material/Container";
 import { Provider } from "react-redux";
 import Footer from "./components/common/Footer";
-import Header from "./components/common/Header";
+import Header from "./components/common/header";
 import store from "./redux/store";
 import Pages from "./routes";
 
 function App() {
   return (
-    <Container>
-      <Provider store={store}>
-        <Header />
+    <Provider store={store}>
+      <Header />
+      <Container>
         <Pages />
-        <Footer />
-      </Provider>
-    </Container>
+      </Container>
+      <Footer />
+    </Provider>
   );
 }
 
