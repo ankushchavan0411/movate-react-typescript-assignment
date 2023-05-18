@@ -33,7 +33,7 @@ const Alerts: React.FC<AlertsProps> = () => {
 
   return (
     <Box sx={{ width: "100%" }}>
-      <Collapse in={open}>
+      <Collapse in={open} className="alert-section">
         <Alert
           severity={alert?.type}
           action={
