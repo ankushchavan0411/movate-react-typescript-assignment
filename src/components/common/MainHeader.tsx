@@ -17,6 +17,7 @@ const MainHeader: React.FC<Props> = ({ handleOnClick, labelText }) => {
         </Grid>
         <Grid xs={2}>
           <Buttons
+            color="secondary"
             labelText={`Add ${labelText}`}
             handleOnClick={handleOnClick}
           />

@@ -27,6 +27,7 @@ const StudentTableRows: React.FC<Props> = ({ handleOnEditClick, students }) => {
             <StyledTableCell>{student.city}</StyledTableCell>
             <StyledTableCell align="right">
               <Buttons
+                color="warning"
                 startIcon={<EditIcon />}
                 labelText={"Edit"}
                 handleOnClick={() => {

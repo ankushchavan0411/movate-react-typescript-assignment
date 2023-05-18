@@ -6,7 +6,7 @@ interface Props {
   labelText: string;
   handleOnClick: () => void;
   disabled?: boolean;
-  color?: "secondary" | "success" | "error" | "primary";
+  color?: "secondary" | "success" | "error" | "primary" | "warning";
   variant?: "outlined" | "contained";
   size?: "small" | "medium" | "large";
   startIcon?: React.ReactNode;

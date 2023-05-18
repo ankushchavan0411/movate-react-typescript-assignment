@@ -35,6 +35,7 @@ const TeacherRowItem: React.FC<RowItemProps> = ({
       <StyledTableCell align="right">
         <Stack spacing={2} direction="row">
           <Buttons
+            color="warning"
             startIcon={<EditIcon />}
             labelText={"Edit"}
             handleOnClick={() => {
