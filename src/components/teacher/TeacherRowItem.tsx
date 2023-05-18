@@ -6,7 +6,7 @@ import Stack from "@mui/material/Stack";
 import React from "react";
 import { ITeacher } from "../../types/types";
 import Buttons from "../common/Button";
-import { StyledTableCell, StyledTableRow } from "../common/style";
+import { StyledTableCell, StyledTableRow } from "../../const/style";
 
 type RowItemProps = {
   teacher: ITeacher;

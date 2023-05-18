@@ -6,7 +6,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import { GridColDef } from "@mui/x-data-grid";
-import { StyledTableCell } from "./style";
+import { StyledTableCell } from "../../const/style";
 
 interface DataTableProps {
   columns: GridColDef[];

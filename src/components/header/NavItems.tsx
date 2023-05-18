@@ -13,7 +13,7 @@ const NavItems = () => {
             to={nav?.path}
             className={({ isActive }) => (isActive ? "active" : "")}
           >
-            {nav?.path}
+            {nav?.dName}
           </NavLink>
         );
       })}

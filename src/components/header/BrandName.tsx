@@ -1,7 +1,7 @@
 /** @format */
 
 import Typography from "@mui/material/Typography";
-import { BRAND_NAME } from "../../../const";
+import { BRAND_NAME } from "../../const";
 
 const BrandName = () => {
   return (

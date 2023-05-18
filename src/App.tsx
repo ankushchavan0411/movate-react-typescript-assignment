@@ -1,8 +1,8 @@
 /** @format */
 import Container from "@mui/material/Container";
 import { Provider } from "react-redux";
-import Footer from "./components/common/Footer";
-import Header from "./components/common/header";
+import Footer from "./components/Footer";
+import Header from "./components/header";
 import store from "./redux/store";
 import Pages from "./routes";
 
