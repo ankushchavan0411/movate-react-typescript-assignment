@@ -15,6 +15,11 @@ export default function Loader() {
         <Skeleton />
         <Skeleton animation="wave" />
         <Skeleton animation="wave" />
+        <Box width={"100%"} height={60} />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
+        <Skeleton />
       </Box>
     </section>
   );
