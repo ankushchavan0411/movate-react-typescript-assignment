@@ -4,6 +4,8 @@ import {
   ADD_COURSE,
   DELETE_COURSE,
   EDIT_COURSE,
+  LOADER_START,
+  LOADER_STOP,
 } from "../../const/actionTypes";
 import { CourseAction, DispatchType, ICourse } from "../../types/types";
 
@@ -36,6 +38,15 @@ export function deleteCourse(course: ICourse) {
   };
 
   return (dispatch: DispatchType) => {
-    dispatch(action);
+    dispatch({ type: LOADER_START, course });
+    setTimeout(() => {
+      try {
+        dispatch(action);
+        dispatch({ type: LOADER_STOP, course });
+      } catch (error) {
+        dispatch({ type: LOADER_STOP, course });
+        console.error(error);
+      }
+    }, 700);
   };
 }

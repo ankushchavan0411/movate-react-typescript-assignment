@@ -54,7 +54,7 @@ footer {
   margin-top: 45px;
   z-index: 1;
   position: sticky;
-  bottom: 1;
+  bottom: 0px;
   text-align: center;
   color: #fff;
   padding: 15px;
