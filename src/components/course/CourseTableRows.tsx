@@ -1,18 +1,15 @@
 /** @format */
 
-import DeleteIcon from "@mui/icons-material/Delete";
-import EditIcon from "@mui/icons-material/Edit";
-import Stack from "@mui/material/Stack";
-import React from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
-import { ALERT_TYPES, DELETE_MESSAGE_TEXT } from "../../const";
+import { ALERT_TYPES, DELETE_MESSAGE_TEXT, DO_YOU_WISH } from "../../const";
 import { alertMessage } from "../../redux/actions/alertsAction";
 import { deleteCourse } from "../../redux/actions/courseAction";
 import { ICourse } from "../../types/types";
-import Buttons from "../common/Button";
+import AreYouSure from "../common/AreYouSure";
 import NoData from "../common/NoData";
-import { StyledTableCell, StyledTableRow } from "../common/style";
+import RowItem from "./RowItem";
 
 interface Props {
   handleOnEditClick: (course: ICourse) => void;
@@ -20,6 +17,9 @@ interface Props {
 }
 
 const CourseTableRows: React.FC<Props> = ({ handleOnEditClick, courses }) => {
+  const [isOpen, setOpen] = useState(false);
+  const [courseItem, setCourseItem] = useState({} as ICourse);
+
   const dispatch: Dispatch<any> = useDispatch();
 
   return (
@@ -30,42 +30,37 @@ const CourseTableRows: React.FC<Props> = ({ handleOnEditClick, courses }) => {
         <React.Fragment>
           {courses
             ?.map?.((course, index) => (
-              <StyledTableRow key={course.id}>
-                <StyledTableCell>{index + 1}</StyledTableCell>
-                <StyledTableCell component="th" scope="row">
-                  {course.name}
-                </StyledTableCell>
-                <StyledTableCell>{course.durationInMonths}</StyledTableCell>
-                <StyledTableCell align="right">
-                  <Stack spacing={2} direction="row">
-                    <Buttons
-                      startIcon={<EditIcon />}
-                      labelText={"Edit"}
-                      handleOnClick={() => {
-                        handleOnEditClick(course);
-                      }}
-                    />
-                    <Buttons
-                      startIcon={<DeleteIcon />}
-                      color="error"
-                      labelText={"Delete"}
-                      handleOnClick={() => {
-                        dispatch(deleteCourse(course));
-                        dispatch(
-                          alertMessage({
-                            text: `${course?.name} course ${DELETE_MESSAGE_TEXT}`,
-                            type: ALERT_TYPES?.SUCCESS,
-                          })
-                        );
-                      }}
-                    />
-                  </Stack>
-                </StyledTableCell>
-              </StyledTableRow>
+              <RowItem
+                key={course.id}
+                course={course}
+                index={index}
+                handleOnEditClick={handleOnEditClick}
+                setOpen={setOpen}
+                setCourseItem={setCourseItem}
+              />
             ))
             ?.reverse()}
         </React.Fragment>
       )}
+      <AreYouSure
+        isOpen={isOpen}
+        setOpen={setOpen}
+        render={
+          <p>
+            {DO_YOU_WISH} <strong>{courseItem?.name} </strong> course?
+          </p>
+        }
+        handleOnConfirmClick={() => {
+          dispatch(deleteCourse(courseItem));
+          dispatch(
+            alertMessage({
+              text: `${courseItem?.name} course ${DELETE_MESSAGE_TEXT}`,
+              type: ALERT_TYPES?.SUCCESS,
+            })
+          );
+          setOpen(false);
+        }}
+      />
     </React.Fragment>
   );
 };

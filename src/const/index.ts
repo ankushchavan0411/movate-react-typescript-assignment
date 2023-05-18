@@ -42,3 +42,6 @@ export const ALERT_TYPES = {
 export const ADD_MESSAGE_TEXT = "added successfully..!";
 export const UPDATE_MESSAGE_TEXT = "data updated succesfully..!";
 export const DELETE_MESSAGE_TEXT = "deleted succesfully..!";
+export const ARE_YOU_SURE = "Are You Sure?";
+export const IF_SO = "If so, please click Confirm, or else Cancel CTA.";
+export const DO_YOU_WISH = " Do you wish to remove the";
