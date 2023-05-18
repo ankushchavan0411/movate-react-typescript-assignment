@@ -1,6 +1,5 @@
 /** @format */
 import Container from "@mui/material/Container";
-import React from "react";
 import { Provider } from "react-redux";
 import Footer from "./components/common/Footer";
 import Header from "./components/common/Header";
@@ -9,15 +8,13 @@ import Pages from "./routes";
 
 function App() {
   return (
-    <React.Fragment>
+    <Container>
       <Provider store={store}>
         <Header />
-        <Container>
-          <Pages />
-        </Container>
+        <Pages />
         <Footer />
       </Provider>
-    </React.Fragment>
+    </Container>
   );
 }
 

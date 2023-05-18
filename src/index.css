@@ -24,7 +24,6 @@ header {
   top: 0;
   z-index: 1;
   position: sticky;
-  /* background-color: #333; */
   background-color: rgb(25, 118, 210);
   padding: 16px;
   display: flex;
@@ -32,7 +31,6 @@ header {
   text-transform: capitalize;
 }
 header .logo {
-  margin-left: 170px;
   font-weight: 700 !important;
   color: #fff;
 }
@@ -40,7 +38,7 @@ header a {
   text-decoration: none;
   color: #fff;
   font-size: 17px;
-  margin-right: 35px;
+  margin-right: 20px;
   font-weight: 600;
 }
 header .active {
@@ -53,14 +51,15 @@ header a:hover {
 
 /* *********************** ---- Footer CSS ---- ****************************** */
 footer {
-  text-align: center;
-  padding: 15px;
-  background-color: #333;
-  color: #fff;
+  margin-top: 45px;
   z-index: 1;
-  position: absolute;
-  bottom: 0;
+  position: sticky;
+  bottom: 1;
+  text-align: center;
+  color: #fff;
+  padding: 15px;
   width: 100%;
+  background-color: #333;
 }
 
 /* *********************** ---- Main Header CSS ---- ****************************** */
@@ -76,7 +75,6 @@ footer {
 
 .page-not-found {
   border: 2px solid #333;
-  margin-top: 150px;
   display: block;
   text-align: center;
   padding: 30px;
