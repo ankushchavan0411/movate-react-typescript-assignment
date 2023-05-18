@@ -10,7 +10,7 @@ import {
   UPDATE_MESSAGE_TEXT,
 } from "../../const";
 import { alertMessage } from "../../redux/actions/alertsAction";
-import { addCourse, editCourse } from "../../redux/actions/courseAction";
+import { addCourse, editCourse } from "../../redux/actions/CourseAction";
 import { ICourse } from "../../types/types";
 import { getUniqueId } from "../../utils";
 import Buttons from "../common/Button";

@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { Dispatch } from "redux";
 import { ALERT_TYPES, DELETE_MESSAGE_TEXT, DO_YOU_WISH } from "../../const";
 import { alertMessage } from "../../redux/actions/alertsAction";
-import { deleteCourse } from "../../redux/actions/courseAction";
+import { deleteCourse } from "../../redux/actions/CourseAction";
 import { ICourse } from "../../types/types";
 import AreYouSure from "../common/AreYouSure";
 import NoData from "../common/NoData";
