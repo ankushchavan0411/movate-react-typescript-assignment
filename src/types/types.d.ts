@@ -87,3 +87,23 @@ export type AlertsAction = {
 };
 
 export type DispatchTypeAlertsMessage = (args: AlertsAction) => AlertsAction;
+
+/**
+ * @ankushchavan0411
+ * @description Define Loader types here
+ */
+
+export interface ILoader {
+  loading: boolean;
+}
+
+export type LoaderState = {
+  loading: boolean;
+};
+
+export type LoaderAction = {
+  type: string;
+};
+export type DispatchTypeLoader = (
+  args: AlertLoaderActionsAction
+) => LoaderAction;

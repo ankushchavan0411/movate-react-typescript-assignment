@@ -1,6 +1,10 @@
 /** @format */
 
-import { ADD_TEACHER, EDIT_TEACHER } from "../../const/actionTypes";
+import {
+  ADD_TEACHER,
+  DELETE_TEACHER,
+  EDIT_TEACHER,
+} from "../../const/actionTypes";
 import { ITeacher, TeacherAction, TeacherState } from "../../types/types";
 
 const initialState: TeacherState = {
@@ -61,7 +65,7 @@ const TeacherReducer = (
         teachers: state.teachers.concat(action.teacher),
       };
 
-    case EDIT_TEACHER:
+    case EDIT_TEACHER: {
       const updatedTeacher: ITeacher[] = state.teachers.filter((teacher) => {
         if (teacher.id === action.teacher.id) {
           teacher.name = action.teacher.name;
@@ -77,7 +81,18 @@ const TeacherReducer = (
         ...state,
         teachers: updatedTeacher,
       };
+    }
+
+    case DELETE_TEACHER: {
+      return {
+        ...state,
+        teachers: state.teachers.filter(
+          (teacher) => teacher.id !== action.teacher.id
+        ),
+      };
+    }
   }
+
   return state;
 };
 

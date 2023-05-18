@@ -1,6 +1,12 @@
 /** @format */
 
-import { ADD_TEACHER, EDIT_TEACHER } from "../../const/actionTypes";
+import {
+  ADD_TEACHER,
+  DELETE_TEACHER,
+  EDIT_TEACHER,
+  LOADER_START,
+  LOADER_STOP,
+} from "../../const/actionTypes";
 import {
   DispatchTypeTeacher,
   ITeacher,
@@ -26,5 +32,23 @@ export function editTeacher(teacher: ITeacher) {
 
   return (dispatch: DispatchTypeTeacher) => {
     dispatch(action);
+  };
+}
+
+export function deleteTeacher(teacher: ITeacher) {
+  return (dispatch: DispatchTypeTeacher) => {
+    dispatch({ type: LOADER_START, teacher });
+    setTimeout(() => {
+      try {
+        dispatch({
+          type: DELETE_TEACHER,
+          teacher,
+        });
+        dispatch({ type: LOADER_STOP, teacher });
+      } catch (error) {
+        dispatch({ type: LOADER_STOP, teacher });
+        console.error(error);
+      }
+    }, 700);
   };
 }
